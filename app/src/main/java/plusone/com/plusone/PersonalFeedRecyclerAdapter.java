@@ -15,11 +15,15 @@ public class PersonalFeedRecyclerAdapter extends RecyclerView.Adapter<PersonalFe
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         public CardView mCardView;
-        public TextView cardText;
+        public View profileImage;
+        public TextView username;
+        public TextView likes;
         public ViewHolder(CardView v) {
             super(v);
             mCardView = v;
-            cardText = (TextView) mCardView.findViewById(R.id.card_text);
+            profileImage = mCardView.findViewById(R.id.profile_image);
+            username = (TextView) mCardView.findViewById(R.id.name_text);
+            likes = (TextView) mCardView.findViewById(R.id.likes);
         }
     }
 
@@ -44,7 +48,7 @@ public class PersonalFeedRecyclerAdapter extends RecyclerView.Adapter<PersonalFe
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.cardText.setText(""+position);
+        holder.
     }
 
     // Return the size of your dataset (invoked by the layout manager)
