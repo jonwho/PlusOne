@@ -12,11 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 
 /**
  */
+
 public class PersonalFeedFragment extends Fragment {
 
     private static final String TAG = "RecyclerViewFragment";
@@ -34,7 +36,7 @@ public class PersonalFeedFragment extends Fragment {
     protected RecyclerView mRecyclerView;
     protected PersonalFeedRecyclerAdapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
-    protected String[] mDataset;
+    protected ArrayList<Profile> mDataset;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -118,9 +120,6 @@ public class PersonalFeedFragment extends Fragment {
      * from a local content provider or remote server.
      */
     private void initDataset() {
-        mDataset = new String[DATASET_COUNT];
-        for (int i = 0; i < DATASET_COUNT; i++) {
-            mDataset[i] = "This is element #" + i;
-        }
+        mDataset = new ArrayList<Profile>();
     }
 }
