@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * Created by Picknick on 6/17/2016.
  */
 public class PersonalFeedRecyclerAdapter extends RecyclerView.Adapter<PersonalFeedRecyclerAdapter.ViewHolder> {
-    private ArrayList<Profile> mDataset;
+    private ArrayList<FriendManager.Friend> mDataset;
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         public CardView mCardView;
@@ -30,7 +30,7 @@ public class PersonalFeedRecyclerAdapter extends RecyclerView.Adapter<PersonalFe
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public PersonalFeedRecyclerAdapter(ArrayList<Profile> myDataset) {
+    public PersonalFeedRecyclerAdapter(ArrayList<FriendManager.Friend> myDataset) {
         mDataset = myDataset;
     }
 
@@ -50,7 +50,9 @@ public class PersonalFeedRecyclerAdapter extends RecyclerView.Adapter<PersonalFe
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.profileImage.
+        FriendManager.Friend friend = FriendManager.friendManager.friendList.get(position);
+        holder.username.setText(friend.firstName + " " + friend.lastName);
+        holder.likes.setText(""+friend.likes);
     }
 
     // Return the size of your dataset (invoked by the layout manager)

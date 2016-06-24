@@ -36,7 +36,6 @@ public class PersonalFeedFragment extends Fragment {
     protected RecyclerView mRecyclerView;
     protected PersonalFeedRecyclerAdapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
-    protected ArrayList<Profile> mDataset;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -69,7 +68,7 @@ public class PersonalFeedFragment extends Fragment {
         }
         setRecyclerViewLayoutManager(mCurrentLayoutManagerType);
 
-        mAdapter = new PersonalFeedRecyclerAdapter(mDataset);
+        mAdapter = new PersonalFeedRecyclerAdapter(FriendManager.friendManager.friendList);
         // Set CustomAdapter as the adapter for RecyclerView.
         mRecyclerView.setAdapter(mAdapter);
 
@@ -120,6 +119,6 @@ public class PersonalFeedFragment extends Fragment {
      * from a local content provider or remote server.
      */
     private void initDataset() {
-        mDataset = new ArrayList<Profile>();
+        
     }
 }
