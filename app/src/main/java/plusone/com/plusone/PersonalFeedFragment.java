@@ -119,6 +119,7 @@ public class PersonalFeedFragment extends Fragment {
      * from a local content provider or remote server.
      */
     private void initDataset() {
-        
+        FriendManager.friendManager.initiateCR(getActivity().getContentResolver());
+        FriendManager.friendManager.initializeDataSet();
     }
 }
